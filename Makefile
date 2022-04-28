@@ -44,7 +44,7 @@ Image: boot/bootsect boot/setup tools/system
 	@tools/build.sh boot/bootsect boot/setup tools/kernel Kernel_Image $(ROOT_DEV) $(SWAP_DEV)
 	@rm system.tmp
 	@rm tools/kernel -f
-	@cp Kernel_Image ../linux-0.12-080324
+#	@cp Kernel_Image ../linux-0.12-080324
 	@sync
 
 boot/bootsect: boot/bootsect.S
@@ -98,11 +98,11 @@ clean:
 	@for i in mm fs kernel lib boot; do make clean -C $$i; done
 
 debug:
-	@qemu-system-i386 -m 32M -boot a -fda Image -fdb rootimage-0.12 -hda rootimage-0.12-hd \
+	@qemu-system-i386 -m 32M -boot a -fda Kernel_Image -fdb rootimage-0.12-fd -hda rootimage-0.12-hd \
 	-serial pty -S -gdb tcp::1234
 
 start:
-	@qemu-system-i386 -m 32M -boot a -fda Image -fdb rootimage-0.12 -hda rootimage-0.12-hd
+	@qemu-system-i386 -m 32M -boot a -fda Kernel_Image -fdb rootimage-0.12-fd -hda rootimage-0.12-hd
 
 dep:
 	@sed '/\#\#\# Dependencies/q' < Makefile > tmp_make

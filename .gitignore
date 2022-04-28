@@ -11,4 +11,6 @@ boot/setup
 system.S
 tools/kernel
 tools/system
+rootimage-0.12-fd
+rootimage-0.12-hd
 

@@ -50,7 +50,7 @@ dd bs=32 if=$setup of=$IMAGE skip=1 seek=16 count=64 2>&1 >/dev/null
 # Write system(< SYS_SIZE) to stdout
 [ ! -f "$system" ] && echo "there is no system binary file there" && exit -1
 system_size=`wc -c $system |cut -d" " -f1`
-[ $system_size -gt $SYS_SIZE ] && echo "the system binary is too big" && exit -1
+#[ $system_size -gt $SYS_SIZE ] && echo "the system binary is too big" && exit -1
 dd if=$system seek=5 bs=512 count=$((2888-1-4)) of=$IMAGE 2>&1 >/dev/null
 
 # Set "device" for the root image file
