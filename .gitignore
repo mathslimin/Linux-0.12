@@ -1,0 +1,14 @@
+.vscode
+*.iml
+*.o
+*.s
+*.a
+*.tmp
+Kernel_Image
+System.map
+boot/bootsect
+boot/setup
+system.S
+tools/kernel
+tools/system
+
