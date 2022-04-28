@@ -17,5 +17,6 @@ http://oldlinux.org/Linux.old/bochs/linux-0.12-080324.zip
 ```shell
 sudo apt-get install bin86
 make all
+#qemu 图形化运行
 qemu-system-i386 -m 32M -boot a -fda Kernel_Image -fdb rootimage-0.12-fd -hda rootimage-0.12-hd 
 ```
